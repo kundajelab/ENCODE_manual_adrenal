@@ -10,11 +10,11 @@ bc_wl_rna: http://mitra.stanford.edu/kundaje/atwang/rna_whitelists/737K-arc-v1.t
 bc_wl_atac: http://mitra.stanford.edu/kundaje/atwang/atac_whitelists/737K-arc-v1.txt.gz
 
 archr_seed: 8757647
-archr_min_frags: 5000
-archr_min_tss_enr: 5
+archr_min_frags: 1000
+archr_min_tss_enr: 4
 
 seurat_seed: 2398756
-seurat_min_count: 1000
+seurat_min_count: 500
 seurat_max_pct_mito: 5
 
 rna_ref_counts: https://adrenal.kitz-heidelberg.de/developmental_programs_NB_viz/session/ab32b3a9653ce96c98e3ebaefafdf046/download/adrenal_gland-download_counts?w=
