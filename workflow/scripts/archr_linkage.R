@@ -97,7 +97,7 @@ cM <- cbind(cM, Unknown = 0.01)
 print(cM) ####
 labelOld <- rownames(cM)
 labelNew <- colnames(cM)[apply(cM, 1, which.max)]
-proj$cell_labels_link <- mapLabels(proj$Clusters_ATAC, newLabels = labelNew, oldLabels = labelOld)
+proj$cell_labels <- mapLabels(proj$Clusters_ATAC, newLabels = labelNew, oldLabels = labelOld)
 
 p <- pheatmap::pheatmap(
     # mat = cM[rowSums(cM)>0,], 
@@ -111,12 +111,12 @@ plotPDF(p, name = "seurat_label_linkage_cm.pdf", ArchRProj = proj, addDOC = FALS
 p1 <- plotEmbedding(
     ArchRProj = proj, 
     colorBy = "cellColData", 
-    name = "cell_labels_link", 
+    name = "cell_labels", 
     embedding = "UMAP_Harmony",
     logFile = log_paths[["umap_plot"]]
 )
 
-plotPDF(p1, name = "umap_labels_link.pdf", ArchRProj = proj, addDOC = FALSE, width = 5, height = 5)
+plotPDF(p1, name = "umap_full_label.pdf", ArchRProj = proj, addDOC = FALSE, width = 5, height = 5)
 
 ##########
 

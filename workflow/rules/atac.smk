@@ -94,21 +94,6 @@ rule archr_cluster:
     script:
         "../scripts/archr_cluster.R"
 
-rule transport_rna_labels:
-    """
-    Parse labels from seurat metadata
-    """
-    input:
-        seurat_data = "results_merged/rna/seurat_name_rna/metadata.tsv",
-        wl_atac = "whitelists/atac.txt",
-        wl_rna = "whitelists/rna.txt"
-    output:
-        "results_merged/atac/labels_import.tsv"
-    conda:
-        "../envs/fetch.yaml"
-    script:
-        "../scripts/transport_rna_clusters.py"
-
 rule archr_linkage:
     """
     ArchR unconstrained cluster linkage using reference
@@ -133,30 +118,6 @@ rule archr_linkage:
     script:
         "../scripts/archr_linkage.R"
 
-rule archr_label:
-    """
-    ArchR cluster labeling
-    """
-    input:
-        project_in = "results_merged/atac/archr_linkage",
-        label_data = "results_merged/atac/labels_import.tsv"
-    output:
-        project_out = directory("results_merged/atac/archr_label"),
-        labels = "results_merged/atac/archr_label_data.tsv"
-    params:
-        seed = config["archr_seed"]
-    log:
-        console = "logs/merged/atac/archr_label/console.log",
-        move = "logs/merged/atac/archr_label/move.log",
-        umap_plot = "logs/merged/atac/archr_label/umap_plot.log",
-        save = "logs/merged/atac/archr_label/save.log"
-    threads:
-        max_threads
-    conda:
-        "../envs/archr.yaml"
-    script:
-        "../scripts/archr_label.R"
-
 rule archr_write_qc:
     """
     ArchR write sample QC data
@@ -177,7 +138,7 @@ rule archr_write_data:
     ArchR write cell data
     """
     input:
-        project_in = "results_merged/atac/archr_label"
+        project_in = "results_merged/atac/archr_linkage"
     output:
         markers = directory("results_merged/atac/archr_write_data/markers"),
         emb_coords = "results_merged/atac/archr_write_data/emb_coords.tsv",
