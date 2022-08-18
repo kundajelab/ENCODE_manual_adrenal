@@ -73,7 +73,7 @@ rule all:
     Generate all outputs (default)
     """
     input: 
-        "results_merged/atac/archr_label",
+        "results_merged/atac/archr_linkage",
         "export/atac/embeddings/harmony.tsv.gz",
         "export/atac/embeddings/umap.tsv.gz",
         "export/atac/labels/cell_types.tsv.gz",
