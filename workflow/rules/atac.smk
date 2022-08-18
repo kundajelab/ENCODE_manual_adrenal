@@ -217,7 +217,7 @@ rule export_atac_figures:
     Export ATAC figures
     """
     input:
-        "results_merged/atac/archr_label"
+        "results_merged/atac/archr_linkage"
     output:
         scratch = directory("results_merged/atac/export_figures"),
         tarball = "export/atac/figures.tar.gz"
