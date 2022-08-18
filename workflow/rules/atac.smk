@@ -102,7 +102,8 @@ rule archr_linkage:
         project_in = "results_merged/atac/archr_clustered",
         seurat_data = "reference/seurat_build_reference_log1p/proj.rds"
     output:
-        project_out = directory("results_merged/atac/archr_linkage")
+        project_out = directory("results_merged/atac/archr_linkage"),
+        labels = "results_merged/atac/archr_label_data.tsv"
     params:
         seed = config["archr_seed"]
     log:
