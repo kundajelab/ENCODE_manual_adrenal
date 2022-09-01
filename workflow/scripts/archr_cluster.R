@@ -7,7 +7,6 @@ sink(console_log, type = "message")
 library(parallel)
 
 library(ArchR)
-library(chromVARmotifs)
 library(Seurat)
 
 addArchRVerbose(verbose = FALSE)

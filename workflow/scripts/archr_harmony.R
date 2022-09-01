@@ -8,7 +8,6 @@ library(parallel)
 library(BiocGenerics)
 
 library(ArchR)
-library(chromVARmotifs)
 
 addArchRVerbose(verbose = FALSE)
 addArchRChrPrefix(chrPrefix = FALSE)
