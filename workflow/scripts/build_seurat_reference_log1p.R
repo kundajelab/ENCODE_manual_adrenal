@@ -44,7 +44,6 @@ proj[["percent.mt"]] <- PercentageFeatureSet(proj, pattern = "^MT-")
 proj$cell_type <- proj[["med_idents"]]
 # proj$cell_type <- replace(proj$cell_type, proj$cell_type == "", "Unknown")
 # proj <- subset(proj, subset = cell_type != "NA")
-proj <- subset(proj, subset = typeSample == "nucSeq")
 
 plt <- VlnPlot(proj, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 ggsave(output_paths[["qc_violin"]], plt, device = "pdf")
