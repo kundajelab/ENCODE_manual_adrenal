@@ -27,7 +27,7 @@ expression_matrix <- readRDS(input_paths[["mat"]])
 # print(expression_matrix) ####
 # metadata <- read.table(file = input_paths[["metadata"]], sep = ',', header = TRUE)
 # rownames(metadata) <- metadata$cell
-metadata <- t(readRDS(input_paths[["metadata"]]))
+metadata <- t(as.matrix(readRDS(input_paths[["metadata"]])))
 print(head(metadata)) ####
 # expression_matrix <- expression_matrix[rownames(metadata)]
 
