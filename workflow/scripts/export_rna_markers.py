@@ -42,8 +42,10 @@ def export_label(in_path, out_path, gene_map, label_name):
             p_val = float(entries[pval_ind])
             p_val_adj = float(entries[pval_adj_ind])
 
-            # gene_id = gene_map[gene_name]
-            gene_id = gene_map.get(gene_name, gene_map[gene_name.split(".")[0]])
+            try:
+                gene_id = gene_map[gene_name]
+            except KeyError:
+                gene_id = gene_map[gene_name.split(".")[0]]
 
             is_enriched = int((p_val_adj < 0.05) and (avg_logFC > 0))
             
