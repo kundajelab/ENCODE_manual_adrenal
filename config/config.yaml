@@ -17,8 +17,8 @@ seurat_seed: 2398756
 seurat_min_count: 500
 seurat_max_pct_mito: 5
 
-rna_ref_counts: http://mitra.stanford.edu/kundaje/atwang/encode_scatac/data/adrenal/annot.rds
-rna_ref_metadata: http://mitra.stanford.edu/kundaje/atwang/encode_scatac/data/adrenal/counts.rds
+rna_ref_metadata: http://mitra.stanford.edu/kundaje/atwang/encode_scatac/data/adrenal/annot.rds
+rna_ref_counts: http://mitra.stanford.edu/kundaje/atwang/encode_scatac/data/adrenal/counts.rds
 
 doublet_formation_rate: 0.15
 # doublet_formation_rate: 0.3
