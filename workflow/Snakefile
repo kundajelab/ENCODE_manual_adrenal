@@ -256,7 +256,7 @@ rule download_rna_ref_counts:
     Download reference expression tarball
     """
     output:
-        "reference/fetch/expression.zip"
+        "reference/fetch/expression.rds"
     params:
         url = config["rna_ref_counts"]
     conda:
@@ -264,29 +264,12 @@ rule download_rna_ref_counts:
     shell:
         "curl --no-progress-meter -L '{params.url}' > {output}"
 
-rule extract_rna_ref_counts:
-    """
-    Extract reference expression data from tarball
-    """
-    input:
-        "reference/fetch/expression.zip"
-    output:
-        matrix = "reference/fetch/matrix.mtx",
-        features = "reference/fetch/features.tsv",
-        barcodes = "reference/fetch/barcodes.tsv",
-    conda:
-        "envs/fetch.yaml"
-    shell:
-        "unzip -p {input} rawData_human/countTable_human/matrix.mtx.gz | zcat > {output.matrix}; "
-        "unzip -p {input} rawData_human/countTable_human/features.tsv.gz | zcat > {output.features}; "
-        "unzip -p {input} rawData_human/countTable_human/barcodes.tsv.gz | zcat > {output.barcodes} "
-
 rule download_rna_ref_metadata:
     """
     Download reference metadata
     """
     output:
-        "reference/fetch/metadata.csv"
+        "reference/fetch/annotations.rds"
     params:
         url = config["rna_ref_metadata"]
     conda:

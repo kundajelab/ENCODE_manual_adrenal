@@ -3,10 +3,8 @@ rule seurat_build_reference:
     Build Seurat reference dataset
     """
     input:
-        mat = "reference/fetch/matrix.mtx",
-        features = "reference/fetch/features.tsv",
-        cells = "reference/fetch/barcodes.tsv",
-        metadata = "reference/fetch/metadata.csv"
+        mat = "reference/fetch/expression.rds",
+        metadata = "reference/fetch/annotations.rds"
     output:
         project_out = "reference/seurat_build_reference/proj.rds",
         qc_violin = "reference/seurat_build_reference/qc_violin.pdf",
@@ -26,10 +24,8 @@ rule seurat_build_reference_log1p:
     Build Seurat reference dataset (no SCT)
     """
     input:
-        mat = "reference/fetch/matrix.mtx",
-        features = "reference/fetch/features.tsv",
-        cells = "reference/fetch/barcodes.tsv",
-        metadata = "reference/fetch/metadata.csv"
+        mat = "reference/fetch/expression.rds",
+        metadata = "reference/fetch/annotations.rds"
     output:
         project_out = "reference/seurat_build_reference_log1p/proj.rds",
         qc_violin = "reference/seurat_build_reference_log1p/qc_violin.pdf",
