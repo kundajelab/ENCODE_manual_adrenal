@@ -14,7 +14,7 @@ archr_min_frags: 1000
 archr_min_tss_enr: 4
 
 seurat_seed: 2398756
-seurat_min_count: 500
+seurat_min_count: 400
 seurat_max_pct_mito: 5
 
 rna_ref_metadata: http://mitra.stanford.edu/kundaje/atwang/encode_scatac/data/adrenal/annot.rds
