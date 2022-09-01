@@ -70,8 +70,6 @@ library(ArchR)
 }
 assignInNamespace(".getRowVars", .getRowVars, ns="ArchR")
 
-library(chromVARmotifs)
-
 addArchRVerbose(verbose = FALSE)
 addArchRChrPrefix(chrPrefix = FALSE)
 
